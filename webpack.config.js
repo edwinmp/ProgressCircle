@@ -4,13 +4,13 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: "./src/com/mendix/widget/carousel/Carousel.ts",
+    entry: "./src/com/mendix/widget/ProgressCircle/ProgressCircle.ts",
     output: {
         path: path.resolve(__dirname, "dist/tmp"),
-        filename: "src/com/mendix/widget/carousel/Carousel.js",
+        filename: "src/com/mendix/widget/ProgressCircle/ProgressCircle.js",
         libraryTarget:  "umd",
         umdNamedDefine: true,
-        library: "com.mendix.widget.carousel.Carousel"
+        library: "com.mendix.widget.ProgressCircle.ProgressCircle"
     },
     resolve: {
         extensions: [ "", ".ts", ".js", ".json" ]
