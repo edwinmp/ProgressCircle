@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.mendix.widget.ProgressCircle.ProgressCircle" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../../../../../xsd/widget.xsd">
+    <name>ProgressCircle</name>
+    <description>Displays circular progress bar.</description>
+    <icon/>
+    <properties>
+        <property key="progressAttribute" type="attribute" required="true">
+            <caption>Progress Attribute</caption>
+            <category>Data</category>
+            <description>Holds the progress value</description>
+            <attributeTypes>
+                <attributeType name="Integer" />
+                <attributeType name="Decimal" />
+            </attributeTypes>
+        </property>
+    </properties>
+</widget>
