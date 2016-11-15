@@ -5,12 +5,13 @@ declare namespace progressbar {
         constructor(node: Node, options?: CircleOptions);
 
         setText(text: string);
+        animate(percentage: number);
     }
 
     interface CircleOptions {
         color?: string;
         trailColor?: string;
-        trailWidth?: string;
+        trailWidth?: number;
         strokeWidth: number;
         fill?: string;
     }

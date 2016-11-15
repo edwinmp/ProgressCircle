@@ -7,7 +7,7 @@ interface ProgressProps {
 }
 
 export const Progress = (props: ProgressProps) =>
-    DOM.div({ className: classNames("c100", "p" + props.percentage, "center") },
+    DOM.div({ className: classNames("mx-progressbar", "c100", "p" + props.percentage, "center") },
         DOM.span(null, props.percentage + "%"),
         DOM.div({ className: "slice" },
             DOM.div({ className: "bar" }),

@@ -25,8 +25,14 @@ class ProgressCircle extends WidgetBase {
         //     render(createElement(Progress, { percentage }), this.domNode);
         // }
 
-        let circle = new Circle(this.domNode, { strokeWidth: 5 });
+        let circle = new Circle(this.domNode, {
+            color: "#FFEA82",
+            strokeWidth: 6,
+            trailColor: "#eee",
+            trailWidth: 1
+        });
         circle.setText("85%");
+        circle.animate(85 / 100);
     }
 
     // uninitialize() {
