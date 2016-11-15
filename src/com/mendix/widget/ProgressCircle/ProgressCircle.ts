@@ -1,9 +1,11 @@
 import * as dojoDeclare from "dojo/_base/declare";
 import * as WidgetBase from "mxui/widget/_WidgetBase";
 
-import { Progress } from "./components/Progress";
-import { createElement } from "react";
-import { render, unmountComponentAtNode } from "react-dom";
+import { Circle } from "progressbar.js";
+
+// import { Progress } from "./components/Progress";
+// import { createElement } from "react";
+// import { render, unmountComponentAtNode } from "react-dom";
 
 class ProgressCircle extends WidgetBase {
     // Properties from Mendix modeler
@@ -19,16 +21,19 @@ class ProgressCircle extends WidgetBase {
     }
 
     updateRendering(percentage: number) {
-        if (this.contextObject) {
-            render(createElement(Progress, { percentage }), this.domNode);
-        }
+        // if (this.contextObject) {
+        //     render(createElement(Progress, { percentage }), this.domNode);
+        // }
+
+        let circle = new Circle(this.domNode, { strokeWidth: 5 });
+        circle.setText("85%");
     }
 
-    uninitialize() {
-        unmountComponentAtNode(this.domNode);
-
-        return true;
-    }
+    // uninitialize() {
+    //     unmountComponentAtNode(this.domNode);
+    //
+    //     return true;
+    // }
 }
 
 // Declare widget prototype the Dojo way
