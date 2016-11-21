@@ -1,11 +1,9 @@
 import * as dojoDeclare from "dojo/_base/declare";
 import * as WidgetBase from "mxui/widget/_WidgetBase";
 
-import { Circle } from "progressbar.js";
-
-// import { Progress } from "./components/Progress";
-// import { createElement } from "react";
-// import { render, unmountComponentAtNode } from "react-dom";
+import { Progress } from "./components/Progress";
+import { createElement } from "react";
+import { render, unmountComponentAtNode } from "react-dom";
 
 class ProgressCircle extends WidgetBase {
     // Properties from Mendix modeler
@@ -15,31 +13,24 @@ class ProgressCircle extends WidgetBase {
 
     update(contextObject: mendix.lib.MxObject, callback: Function) {
         this.contextObject = contextObject;
-        this.updateRendering(this.contextObject.get(this.progressAttribute) as number);
+        this.updateRendering();
 
         callback();
     }
 
-    updateRendering(percentage: number) {
-        // if (this.contextObject) {
-        //     render(createElement(Progress, { percentage }), this.domNode);
-        // }
-
-        let circle = new Circle(this.domNode, {
-            color: "#FFEA82",
-            strokeWidth: 6,
-            trailColor: "#eee",
-            trailWidth: 1
-        });
-        circle.setText("85%");
-        circle.animate(85 / 100);
+    updateRendering() {
+        if (this.contextObject) {
+            render(createElement(Progress, {
+                percentage: this.contextObject.get(this.progressAttribute) as number
+            }), this.domNode);
+        }
     }
 
-    // uninitialize() {
-    //     unmountComponentAtNode(this.domNode);
-    //
-    //     return true;
-    // }
+    uninitialize() {
+        unmountComponentAtNode(this.domNode);
+
+        return true;
+    }
 }
 
 // Declare widget prototype the Dojo way

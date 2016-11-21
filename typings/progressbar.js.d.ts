@@ -2,7 +2,7 @@
 declare namespace progressbar {
 
     export class Circle {
-        constructor(node: Node, options?: CircleOptions);
+        constructor(node: React.ReactNode, options?: CircleOptions);
 
         setText(text: string);
         animate(percentage: number);
