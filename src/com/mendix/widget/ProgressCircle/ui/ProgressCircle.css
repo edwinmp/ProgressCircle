@@ -1,3 +1,7 @@
 .widget-progressbar {
-    width: 200px;
+    width: 100%;
+}
+
+.widget-progressbar .progressbar-text {
+    font-size: 40px;
 }

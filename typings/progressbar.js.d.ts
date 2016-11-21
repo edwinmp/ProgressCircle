@@ -6,13 +6,14 @@ declare namespace progressbar {
 
         setText(text: string);
         animate(percentage: number);
+        destroy();
     }
 
     interface CircleOptions {
         color?: string;
         trailColor?: string;
         trailWidth?: number;
-        strokeWidth: number;
+        strokeWidth: number; // For IE support, shouldn't be over 6
         fill?: string;
     }
 }
