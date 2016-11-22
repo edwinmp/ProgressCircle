@@ -1,5 +1,5 @@
-import { Circle } from "progressbar.js";
 import { Component, DOM, ReactNode } from "react";
+import { Circle } from "progressbar.js"; // tslint:disable-line: ordered-imports
 
 import "../ui/ProgressCircle.css";
 
@@ -12,7 +12,6 @@ export class Progress extends Component<ProgressProps, {}> {
     private progressCircle: Circle;
 
     componentDidMount() {
-        this.createProgressCircle();
         this.setProgress(this.props.percentage);
     }
 
@@ -29,11 +28,11 @@ export class Progress extends Component<ProgressProps, {}> {
 
     private createProgressCircle() {
         this.progressCircle = new Circle(this.progressNode, {
-            color: "#555",
             strokeWidth: 8,
-            trailColor: "#eee",
             trailWidth: 8
         });
+        this.progressCircle.path.className.baseVal = "widget-progress-path";
+        this.progressCircle.trail.className.baseVal = "widget-trail-path";
     }
 
     private setProgress(percentage: number) {

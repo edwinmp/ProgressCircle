@@ -5,3 +5,11 @@
 .widget-progressbar .progressbar-text {
     font-size: 40px;
 }
+
+.widget-progressbar .widget-progress-path {
+    stroke: #555;
+}
+
+.widget-progressbar .widget-trail-path {
+    stroke: #eee;
+}
