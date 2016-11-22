@@ -15,6 +15,10 @@ export class Progress extends Component<ProgressProps, {}> {
         this.setProgress(this.props.percentage);
     }
 
+    componentDidUpdate() {
+        this.setProgress(this.props.percentage);
+    }
+
     render() {
         return DOM.div({
             className: "widget-progressbar",
@@ -28,8 +32,8 @@ export class Progress extends Component<ProgressProps, {}> {
 
     private createProgressCircle() {
         this.progressCircle = new Circle(this.progressNode, {
-            strokeWidth: 8,
-            trailWidth: 8
+            strokeWidth: 6,
+            trailWidth: 6
         });
         this.progressCircle.path.className.baseVal = "widget-progress-path";
         this.progressCircle.trail.className.baseVal = "widget-trail-path";
