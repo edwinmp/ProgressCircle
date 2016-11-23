@@ -28,10 +28,13 @@
                 <attributeType name="Decimal" />
             </attributeTypes>
         </property>
-        <property key="maximumValue" type="integer" required="true" defaultValue="100">
-            <caption>Maximum value</caption>
+        <property key="maximumValueAttribute" type="attribute" required="true">
+            <caption>Maximum value attribute</caption>
             <category>Data</category>
             <description>Highest progress value. Shall be used to calculate the percentage</description>
+            <attributeTypes>
+                <attributeType name="Integer" />
+            </attributeTypes>
         </property>
     </properties>
 </widget>
