@@ -1,5 +1,6 @@
 .widget-progress-circle {
     width: 100%;
+    max-width: 300px;
 }
 
 .widget-progress-circle.progress-circle-small .progressbar-text {

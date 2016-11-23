@@ -51,6 +51,7 @@ describe("Progress", () => {
 
         const progress = render({ value: 80 });
         let instance = progress.instance() as Progress;
+        instance.componentDidMount();
         instance.componentDidUpdate();
 
         expect(setText).toHaveBeenCalled();
@@ -61,11 +62,35 @@ describe("Progress", () => {
         const destroy = progressbar.Circle.prototype.destroy as jasmine.Spy;
         spyOnCircle();
 
-        const progress = render({ value: 80 });
+        const progress = render({ value: 280 });
         let instance = progress.instance() as Progress;
         instance.componentDidMount();
         instance.componentWillUnmount();
 
         expect(destroy).toHaveBeenCalled();
+    });
+
+    describe("with text size small", () => {
+        it("renders with the class progress-circle-small", () => {
+            const progress = render({ textSize: "small", value: 20 });
+
+            expect(progress.find(".progress-circle-small").length).toBe(1);
+        });
+    });
+
+    describe("with text size medium", () => {
+        it("renders with the class progress-circle-medium", () => {
+            const progress = render({ textSize: "medium", value: 20 });
+
+            expect(progress.find(".progress-circle-medium").length).toBe(1);
+        });
+    });
+
+    describe("with text size large", () => {
+        it("renders with the class progress-circle-large", () => {
+            const progress = render({ textSize: "large", value: 20 });
+
+            expect(progress.find(".progress-circle-large").length).toBe(1);
+        });
     });
 });
