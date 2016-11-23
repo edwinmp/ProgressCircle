@@ -77,6 +77,12 @@ class ProgressCircle extends WidgetBase {
                 callback: () => this.updateRendering(),
                 guid: this.contextObject.getGuid()
             });
+
+            this.subscribe({
+                attr: this.maximumValueAttribute,
+                callback: () => this.updateRendering(),
+                guid: this.contextObject.getGuid()
+            });
         }
     }
 }
