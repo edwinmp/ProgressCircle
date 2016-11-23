@@ -25,6 +25,7 @@
             <description>Holds the progress value</description>
             <attributeTypes>
                 <attributeType name="Integer" />
+                <attributeType name="Decimal" />
             </attributeTypes>
         </property>
         <property key="maximumValue" type="integer" required="true" defaultValue="100">

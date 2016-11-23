@@ -8,7 +8,7 @@ declare namespace progressbar {
         constructor(node: React.ReactNode, options?: CircleOptions);
 
         setText(text: string);
-        animate(percentage: number);
+        animate(circleFraction: number);
         destroy();
     }
 
