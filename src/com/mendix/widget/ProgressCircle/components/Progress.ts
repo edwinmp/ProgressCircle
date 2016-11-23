@@ -1,13 +1,21 @@
+import * as classNames from "classnames";
+import { Circle } from "progressbar.js";
 import { Component, DOM, ReactNode } from "react";
-import { Circle } from "progressbar.js"; // tslint:disable-line: ordered-imports
 
 import "../ui/ProgressCircle.css";
 
 export interface ProgressProps {
     percentage: number;
+    textSize?: ProgressTextSize;
 }
 
+export type ProgressTextSize = "small" | "medium" | "large";
+
 export class Progress extends Component<ProgressProps, {}> {
+    static defaultProps: ProgressProps = {
+        percentage: 0,
+        textSize: "medium"
+    };
     private progressNode: ReactNode;
     private progressCircle: Circle;
 
@@ -21,7 +29,7 @@ export class Progress extends Component<ProgressProps, {}> {
 
     render() {
         return DOM.div({
-            className: "widget-progress-circle",
+            className: classNames("widget-progress-circle", "progress-circle-" + this.props.textSize),
             ref: (node: ReactNode) => { this.progressNode = node; }
         });
     }

@@ -5,12 +5,22 @@
     <icon/>
     <properties>
         <property key="progressAttribute" type="attribute" required="true">
-            <caption>Progress Attribute</caption>
+            <caption>Progress attribute</caption>
             <category>Data</category>
             <description>Holds the progress value</description>
             <attributeTypes>
                 <attributeType name="Integer" />
             </attributeTypes>
+        </property>
+        <property key="textSize" type="enumeration" required="true" defaultValue="medium">
+            <caption>Text size</caption>
+            <category>Display</category>
+            <description>Size of the progress text</description>
+            <enumerationValues>
+                <enumerationValue key="small">Small</enumerationValue>
+                <enumerationValue key="medium">Medium</enumerationValue>
+                <enumerationValue key="large">Large</enumerationValue>
+            </enumerationValues>
         </property>
     </properties>
 </widget>
