@@ -13,7 +13,7 @@ describe("Progress", () => {
     it("renders the structure correctly", () => {
         const progress = render({ percentage: 60 });
 
-        expect(progress).toBeElement(DOM.div({ className: "widget-progressbar" }));
+        expect(progress).toBeElement(DOM.div({ className: "widget-progress-circle" }));
     });
 
     it("creates a circle progress bar", () => {

@@ -21,7 +21,7 @@ export class Progress extends Component<ProgressProps, {}> {
 
     render() {
         return DOM.div({
-            className: "widget-progressbar",
+            className: "widget-progress-circle",
             ref: (node: ReactNode) => { this.progressNode = node; }
         });
     }
