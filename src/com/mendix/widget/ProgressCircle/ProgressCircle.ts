@@ -23,7 +23,7 @@ class ProgressCircle extends WidgetBase {
     }
 
     updateRendering() {
-        if (this.contextObject) {
+        if (this.contextObject && this.validValues()) {
             render(createElement(Progress, {
                 animate: this.animate,
                 maximumValue: Number(this.contextObject.get(this.maximumValueAttribute)),
@@ -37,6 +37,25 @@ class ProgressCircle extends WidgetBase {
         unmountComponentAtNode(this.domNode);
 
         return true;
+    }
+
+    private validValues() {
+        let message: string[] = [];
+        const progress = this.contextObject.get(this.progressAttribute);
+        const maximumValue = this.contextObject.get(this.maximumValueAttribute);
+        if (progress < 0) {
+            message.push("Progress value cannot be less than zero");
+        }
+
+        if (maximumValue <= 0) {
+            message.push("Maximum progress value cannot be less than one");
+        }
+
+        if (message.length > 0) {
+            window.mx.ui.error(message.length > 1 ? message.join(" and ") : message[0]);
+        }
+
+        return message.length === 0;
     }
 
     private resetSubscriptions() {
