@@ -37,7 +37,7 @@ describe("Progress", () => {
         const setText = progressbar.Circle.prototype.setText as jasmine.Spy;
         spyOnCircle();
 
-        const progress = render({ value: 80 });
+        const progress = render({ animate: false, value: 80 });
         let instance = progress.instance() as Progress;
         instance.componentDidMount();
 
@@ -67,17 +67,5 @@ describe("Progress", () => {
         instance.componentWillUnmount();
 
         expect(destroy).toHaveBeenCalled();
-    });
-
-    describe("with animation", () => {
-        it("animates on load", () => {
-        //
-        });
-    });
-
-    describe("without animation", () => {
-        it("doesn't animate on load", () => {
-            //
-        });
     });
 });
