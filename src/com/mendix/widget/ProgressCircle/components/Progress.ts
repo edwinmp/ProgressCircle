@@ -5,26 +5,30 @@ import { Component, DOM, ReactNode } from "react";
 import "../ui/ProgressCircle.css";
 
 export interface ProgressProps {
-    percentage: number;
+    value: number;
+    maximumValue?: number;
     textSize?: ProgressTextSize;
+    animate?: boolean;
 }
 
 export type ProgressTextSize = "small" | "medium" | "large";
 
 export class Progress extends Component<ProgressProps, {}> {
     static defaultProps: ProgressProps = {
-        percentage: 0,
-        textSize: "medium"
+        animate: true,
+        maximumValue: 100,
+        textSize: "medium",
+        value: 0
     };
     private progressNode: ReactNode;
     private progressCircle: Circle;
 
     componentDidMount() {
-        this.setProgress(this.props.percentage);
+        this.setProgress(this.props.value);
     }
 
     componentDidUpdate() {
-        this.setProgress(this.props.percentage);
+        this.setProgress(this.props.value);
     }
 
     render() {
@@ -40,6 +44,7 @@ export class Progress extends Component<ProgressProps, {}> {
 
     private createProgressCircle() {
         this.progressCircle = new Circle(this.progressNode, {
+            duration: this.props.animate ? 800 : -1,
             strokeWidth: 6,
             trailWidth: 6
         });
@@ -47,9 +52,10 @@ export class Progress extends Component<ProgressProps, {}> {
         this.progressCircle.trail.className.baseVal = "widget-trail-path";
     }
 
-    private setProgress(percentage: number) {
+    private setProgress(value: number) {
+        const highest = this.props.maximumValue;
         if (!this.progressCircle) { this.createProgressCircle(); }
-        this.progressCircle.setText(percentage + "%");
-        this.progressCircle.animate(percentage / 100);
+        this.progressCircle.setText(value + "%");
+        this.progressCircle.animate(value > highest ? 1 : value / highest);
     }
 }

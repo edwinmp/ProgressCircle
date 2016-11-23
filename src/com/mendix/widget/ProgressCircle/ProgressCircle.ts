@@ -9,6 +9,8 @@ class ProgressCircle extends WidgetBase {
     // Properties from Mendix modeler
     progressAttribute: string;
     textSize: ProgressTextSize;
+    animate: boolean;
+    maximumValue: number;
 
     private contextObject: mendix.lib.MxObject;
 
@@ -23,8 +25,10 @@ class ProgressCircle extends WidgetBase {
     updateRendering() {
         if (this.contextObject) {
             render(createElement(Progress, {
-                percentage: this.contextObject.get(this.progressAttribute) as number,
-                textSize: this.textSize
+                animate: this.animate,
+                maximumValue: this.maximumValue,
+                textSize: this.textSize,
+                value: this.contextObject.get(this.progressAttribute) as number
             }), this.domNode);
         }
     }

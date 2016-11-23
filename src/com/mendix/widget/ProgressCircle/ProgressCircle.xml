@@ -4,14 +4,6 @@
     <description>Displays circular progress bar.</description>
     <icon/>
     <properties>
-        <property key="progressAttribute" type="attribute" required="true">
-            <caption>Progress attribute</caption>
-            <category>Data</category>
-            <description>Holds the progress value</description>
-            <attributeTypes>
-                <attributeType name="Integer" />
-            </attributeTypes>
-        </property>
         <property key="textSize" type="enumeration" required="true" defaultValue="medium">
             <caption>Text size</caption>
             <category>Display</category>
@@ -21,6 +13,24 @@
                 <enumerationValue key="medium">Medium</enumerationValue>
                 <enumerationValue key="large">Large</enumerationValue>
             </enumerationValues>
+        </property>
+        <property key="animate" type="boolean" required="true" defaultValue="true">
+            <caption>Animate</caption>
+            <category>Display</category>
+            <description>Animates when the progress circle is loaded and updated</description>
+        </property>
+        <property key="progressAttribute" type="attribute" required="true">
+            <caption>Progress attribute</caption>
+            <category>Data</category>
+            <description>Holds the progress value</description>
+            <attributeTypes>
+                <attributeType name="Integer" />
+            </attributeTypes>
+        </property>
+        <property key="maximumValue" type="integer" required="true" defaultValue="100">
+            <caption>Maximum value</caption>
+            <category>Data</category>
+            <description>Highest progress value. Shall be used to calculate the percentage</description>
         </property>
     </properties>
 </widget>

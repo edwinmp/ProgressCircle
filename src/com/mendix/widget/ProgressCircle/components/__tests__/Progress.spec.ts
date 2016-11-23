@@ -11,7 +11,7 @@ describe("Progress", () => {
     const Circle = progressbar.Circle;
 
     it("renders the structure correctly", () => {
-        const progress = render({ percentage: 60 });
+        const progress = render({ value: 60 });
 
         expect(progress).toBeElement(DOM.div({ className: "widget-progress-circle" }));
     });
@@ -24,7 +24,7 @@ describe("Progress", () => {
             });
         });
 
-        const progress = render({ percentage: 80 });
+        const progress = render({ value: 80 });
         let instance = progress.instance() as Progress;
         instance.componentDidMount();
 
@@ -41,7 +41,7 @@ describe("Progress", () => {
             });
         });
 
-        const progress = render({ percentage: 80 });
+        const progress = render({ value: 80 });
         let instance = progress.instance() as Progress;
         instance.componentDidMount();
 
@@ -58,7 +58,7 @@ describe("Progress", () => {
             });
         });
 
-        const progress = render({ percentage: 80 });
+        const progress = render({ value: 80 });
         let instance = progress.instance() as Progress;
         instance.componentDidUpdate();
 
@@ -75,7 +75,7 @@ describe("Progress", () => {
             });
         });
 
-        const progress = render({ percentage: 80 });
+        const progress = render({ value: 80 });
         let instance = progress.instance() as Progress;
         instance.componentDidMount();
         instance.componentWillUnmount();
