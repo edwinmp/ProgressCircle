@@ -55,8 +55,8 @@ export class Progress extends Component<ProgressProps, {}> {
     private setProgress(value: number) {
         const highest = this.props.maximumValue;
         if (!this.progressCircle) { this.createProgressCircle(); }
-        this.progressCircle.setText(value + "%");
         const circleFraction = value > highest ? 1 : value / highest;
+        this.progressCircle.setText(Math.round(circleFraction * 100) + "%");
         this.progressCircle.animate(circleFraction);
     }
 }
