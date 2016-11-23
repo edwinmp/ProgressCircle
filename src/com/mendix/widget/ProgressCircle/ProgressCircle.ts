@@ -16,6 +16,11 @@ class ProgressCircle extends WidgetBase {
 
     update(contextObject: mendix.lib.MxObject, callback: Function) {
         this.contextObject = contextObject;
+        if (!this.contextObject) {
+            unmountComponentAtNode(this.domNode);
+            callback();
+            return;
+        }
         this.resetSubscriptions();
         this.updateRendering();
 
