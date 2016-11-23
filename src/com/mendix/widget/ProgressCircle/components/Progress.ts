@@ -3,7 +3,7 @@ import { Circle } from "progressbar.js"; // tslint:disable-line: ordered-imports
 
 import "../ui/ProgressCircle.css";
 
-interface ProgressProps {
+export interface ProgressProps {
     percentage: number;
 }
 
@@ -22,7 +22,7 @@ export class Progress extends Component<ProgressProps, {}> {
     render() {
         return DOM.div({
             className: "widget-progressbar",
-            ref: (node: ReactNode) => this.progressNode = node
+            ref: (node: ReactNode) => { this.progressNode = node; }
         });
     }
 
