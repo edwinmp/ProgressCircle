@@ -54,7 +54,7 @@ describe("Progress", () => {
         instance.componentDidMount();
         instance.componentDidUpdate();
 
-        expect(setText).toHaveBeenCalled();
+        expect(setText).toHaveBeenCalledTimes(2);
     });
 
     it("destroys progress circle on unmount", () => {
@@ -70,24 +70,24 @@ describe("Progress", () => {
         expect(destroy).toHaveBeenCalled();
     });
 
-    describe("with text size small", () => {
-        it("renders with the class progress-circle-small", () => {
+    describe("with the text size small", () => {
+        it("has the class progress-circle-small", () => {
             const progress = render({ textSize: "small", value: 20 });
 
             expect(progress.find(".progress-circle-small").length).toBe(1);
         });
     });
 
-    describe("with text size medium", () => {
-        it("renders with the class progress-circle-medium", () => {
+    describe("with the text size medium", () => {
+        it("has the class progress-circle-medium", () => {
             const progress = render({ textSize: "medium", value: 20 });
 
             expect(progress.find(".progress-circle-medium").length).toBe(1);
         });
     });
 
-    describe("with text size large", () => {
-        it("renders with the class progress-circle-large", () => {
+    describe("with the text size large", () => {
+        it("has the class progress-circle-large", () => {
             const progress = render({ textSize: "large", value: 20 });
 
             expect(progress.find(".progress-circle-large").length).toBe(1);
