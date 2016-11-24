@@ -16,11 +16,6 @@ class ProgressCircle extends WidgetBase {
 
     update(contextObject: mendix.lib.MxObject, callback: Function) {
         this.contextObject = contextObject;
-        if (!this.contextObject) {
-            unmountComponentAtNode(this.domNode);
-            callback();
-            return;
-        }
         this.resetSubscriptions();
         this.updateRendering();
 
@@ -35,6 +30,8 @@ class ProgressCircle extends WidgetBase {
                 textSize: this.textSize,
                 value: Number(this.contextObject.get(this.progressAttribute))
             }), this.domNode);
+        } else {
+            unmountComponentAtNode(this.domNode);
         }
     }
 
