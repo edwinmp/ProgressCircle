@@ -6,7 +6,7 @@ Displays a circular progress bar.
 * Set the maximum progress value based on an attribute
 * Animate on load
 
-## Dependencies
+## Dependencies .
 Mendix 6.
 
 ## Demo project
